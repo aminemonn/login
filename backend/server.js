@@ -7,15 +7,16 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "localhost",	
   user: "root",
   password: "",
   database: "detection",
  
-  
 })
+
 app.post('/detection', (req, res) => {
-    const sql = "INSERT INTO users ('cin','nom', 'prenom','email','password') VALUES (?)";
+  const sql ="INSERT INTO users(cin, nom, prenom, email, password) VALUES (?, ?, ?, ?, ?)";
+   
     const values = [
     req.body.cin,
     req.body.nom,
